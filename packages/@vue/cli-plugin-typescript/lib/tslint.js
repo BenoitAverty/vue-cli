@@ -63,7 +63,7 @@ module.exports = function lint (args = {}, api, silent) {
         linter.lint(
           // append .ts so that tslint apply TS rules
           `${filePath}${isVue ? `.ts` : ``}`,
-          content,
+          content.trim().concat('\n'),
           // use Vue config to ignore blank lines
           isVue ? vueConfig : config
         )
